@@ -64,3 +64,10 @@ Importing GPG key 0xE15E78F4:
 The repository is setup! You can now install packages.
 ```
 
+接下来执行安装命令, 一键
+
+```shell
+[root@zhangyz ~]# yum -y install gitlab-ce
+......
+```
+
