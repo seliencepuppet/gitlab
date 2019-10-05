@@ -73,3 +73,10 @@ The repository is setup! You can now install packages.
 ......
 ```
 
+接下来编辑 /etc/gitlab/gitlab.rb 这个配置文件更改一些选项
+
+```shell
+[root@zhangyz ~]# vim /etc/gitlab/gitlab.rb
+13 external_url 'http://192.168.152.128'
+```
+
