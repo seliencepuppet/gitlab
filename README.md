@@ -83,5 +83,3 @@ The repository is setup! You can now install packages.
 13 external_url 'http://192.168.152.128'
 ```
 
-#### 02.更改访问的url端口
-
