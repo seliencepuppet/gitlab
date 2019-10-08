@@ -83,3 +83,33 @@ The repository is setup! You can now install packages.
 13 external_url 'http://192.168.152.128'
 ```
 
+#### 02.给root用户设置密码方便登录web管理界面
+
+```shell
+[root@zhangyz ~]# gitlab-rails console production
+-------------------------------------------------------------------------------------
+ GitLab:       11.10.4 (62c464651d2)
+ GitLab Shell: 9.0.0
+ PostgreSQL:   9.6.11
+-------------------------------------------------------------------------------------
+Loading production environment (Rails 5.0.7.2)
+irb(main):001:0> u=User.where(id:1).first
+=> #<User id:1 @root>
+irb(main):002:0> u=User.all
+=> #<ActiveRecord::Relation [#<User id:1 @root>]>
+irb(main):003:0> 
+irb(main):004:0> u=User.where(id:1).first
+=> #<User id:1 @root>
+irb(main):005:0> u.password='12345678'
+=> "12345678"
+irb(main):006:0> u.password_confirmation='12345678'
+=> "12345678"
+irb(main):007:0> u.save
+Enqueued ActionMailer::DeliveryJob (Job ID: d878cd2b-321d-4b4c-b9b2-13577e088f2f) to Sidekiq(mailers) with arguments: "DeviseMailer", "password_change", "deliver_now", #<GlobalID:0x00007f4e01ba46d0 @uri=#<URI::GID gid://gitlab/User/1>>
+=> true
+irb(main):010:0> 
+irb(main):011:0> u=User.where(id:1).first
+=> #<User id:1 @root>
+irb(main):012:0> 
+irb(main):013:0> exit
+```
